@@ -1,0 +1,111 @@
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  0% {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar-a {
+  --avatar-a-size: min(400px, 90vw);
+  --avatar-a-content-color: #fff;
+  --avatar-a-background-color: #303030;
+  --avatar-a-border-color: rgba(0,0,0,0.5);
+  --avatar-a-accent-a: #00ccff;
+  --avatar-a-accent-b: #d400d4;
+  --avatar-a-border-radius: 200px;
+  --avatar-a-border-width: 2px;
+  --avatar-a-gap: 10px;
+
+  position: relative;
+  width: var(--avatar-a-size);
+  height: var(--avatar-a-size);
+  background: var(--avatar-a-border-color);
+  border-radius: var(--avatar-a-border-radius);
+  overflow: hidden;
+  font-size: calc(var(--avatar-a-size) / 12);
+}
+
+.avatar-a::before {
+  content: '';
+  position: absolute;
+  inset: -30% 30%;
+  background: linear-gradient(315deg, var(--avatar-a-accent-a), var(--avatar-a-accent-b));
+  transition: .5s;
+  animation: animate 4s linear infinite;
+}
+
+.avatar-a:hover::before {
+  inset: -30% -30%;
+}
+
+.avatar-a::after {
+  content: '';
+  position: absolute;
+  inset: var(--avatar-a-border-width);
+  background: var(--avatar-a-background-color);
+  border-radius: calc(var(--avatar-a-border-radius) - var(--avatar-a-border-width));
+}
+
+.avatar-a__container {
+  position: absolute;
+  inset: var(--avatar-a-gap);
+  border: var(--avatar-a-border-width) solid var(--avatar-a-border-color);
+  border-radius: calc(
+    var(--avatar-a-border-radius) - var(--avatar-a-gap) + var(--avatar-a-border-width)
+  );
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-a__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.avatar-a:hover .avatar-a__image {
+  opacity: 0;
+}
+
+.avatar-a__title {
+  position: relative;
+  font-weight: 600;
+  text-align: center;
+  color: var(--avatar-a-content-color);
+}
+
+.avatar-a__subtitle {
+  font-size: .75em;
+  font-weight: 300;
+  color: var(--avatar-a-content-color);
+}
+
+.avatar-a__link {
+  position: relative;
+  margin-top: .5em;
+  padding: .5em;
+  background: var(--avatar-a-content-color);
+  color: var(--avatar-a-background-color);
+  font-size: .75em;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-radius: 1.5em;
+  transition: .5s;
+}
+
+.avatar-a__link:hover {
+  letter-spacing: .2em;
+}
