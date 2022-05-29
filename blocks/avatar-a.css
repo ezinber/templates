@@ -71,11 +71,13 @@
   height: 100%;
   object-fit: cover;
   transition: .5s;
-  pointer-events: none;
+  visibility: visible;
+  /* pointer-events: none; */
   z-index: 2;
 }
 
 .avatar-a:hover .avatar-a__image {
+  visibility: hidden;
   opacity: 0;
 }
 
