@@ -8,6 +8,9 @@
 }
 
 body {
+  --app-accent-a: #00ccff;
+  --app-accent-b: #d400d4;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
