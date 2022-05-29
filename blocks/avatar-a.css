@@ -12,8 +12,8 @@
   --avatar-a-content-color: #fff;
   --avatar-a-background-color: #303030;
   --avatar-a-border-color: rgba(0,0,0,0.5);
-  --avatar-a-accent-a: #00ccff;
-  --avatar-a-accent-b: #d400d4;
+  --avatar-a-accent-a: var(--app-accent-a, #00ccff);
+  --avatar-a-accent-b: var(--app-accent-b, #d400d4);
   --avatar-a-border-radius: 200px;
   --avatar-a-border-width: 2px;
   --avatar-a-gap: 10px;
@@ -71,11 +71,13 @@
   height: 100%;
   object-fit: cover;
   transition: .5s;
-  pointer-events: none;
-  z-index: 1;
+  visibility: visible;
+  /* pointer-events: none; */
+  z-index: 2;
 }
 
 .avatar-a:hover .avatar-a__image {
+  visibility: hidden;
   opacity: 0;
 }
 
