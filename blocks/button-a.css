@@ -53,7 +53,8 @@
   transform: skewX(45deg) translateX(200%);
 }
 
-.button-a::before {
+.button-a::before,
+.button-a::after {
   content: '';
   position: absolute;
   left: 50%;
@@ -61,10 +62,28 @@
   transform: translateX(-50%);
   width: 30px;
   height: 10px;
-  background: var(--button-a-accent-a);
   border-radius: 10px;
   transition: .5s;
-  transition-delay: 0s;
+}
+
+.button-a::before {
+  bottom: -5px;
+  background: var(--button-a-accent-a);
+  box-shadow:
+    0 0 5px var(--button-a-accent-a),
+    0 0 15px var(--button-a-accent-a),
+    0 0 30px var(--button-a-accent-a),
+    0 0 60px var(--button-a-accent-a);
+}
+
+.button-a::after {
+  top: -5px;
+  background: var(--button-a-accent-b);
+  box-shadow:
+    0 0 5px var(--button-a-accent-b),
+    0 0 15px var(--button-a-accent-b),
+    0 0 30px var(--button-a-accent-b),
+    0 0 60px var(--button-a-accent-b);
 }
 
 .button-a:hover::before {
@@ -72,19 +91,6 @@
   height: 50%;
   width: 80%;
   border-radius: 30px;
-}
-
-.button-a::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: -5px;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 10px;
-  background: var(--button-a-accent-b);
-  border-radius: 10px;
-  transition: .5s;
 }
 
 .button-a:hover::after {
