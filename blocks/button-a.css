@@ -59,7 +59,6 @@
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -5px;
   transform: translateX(-50%);
   width: 30px;
   height: 10px;
@@ -89,8 +88,15 @@
 
 .button-a:hover::before,
 .button-a:hover::after {
-  bottom: 0;
   height: 50%;
   width: 80%;
   border-radius: var(--button-a-border-radius);
+}
+
+.button-a:hover::before {
+  bottom: 0;
+}
+
+.button-a:hover::after {
+  top: 0;
 }
