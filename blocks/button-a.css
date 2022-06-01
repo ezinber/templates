@@ -89,7 +89,7 @@
 .button-a:hover::before,
 .button-a:hover::after {
   height: 50%;
-  width: 80%;
+  width: min(calc(100% - var(--button-a-border-radius)), 99%);
   border-radius: var(--button-a-border-radius);
 }
 

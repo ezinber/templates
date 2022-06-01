@@ -19,3 +19,44 @@ body {
   align-items: center;
   background: #303030;
 }
+
+
+.slider-a {
+  --slider-a-count: 0;
+  --slider-a-width: 600px;
+
+  width: var(--slider-a-width);
+  height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-a__button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  color: lime;
+  z-index: 1;
+}
+
+.slider-a__button_pos_left {
+  left: 20px;
+}
+
+.slider-a__button_pos_right {
+  right: 20px;
+}
+
+.slider-a__container {
+  display: flex;
+  transform: translateX(calc(-1 * var(--slider-a-width) * var(--slider-a-count)));
+  transition: transform .2s linear;
+}
+
+.slider-a__image {
+  width: 600px;
+  height: 400px;
+  flex-basis: 600px;
+}

@@ -72,7 +72,6 @@
   object-fit: cover;
   transition: .5s;
   visibility: visible;
-  /* pointer-events: none; */
   z-index: 2;
 }
 
