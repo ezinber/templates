@@ -24,9 +24,11 @@ body {
 .slider-a {
   --slider-a-count: 0;
   --slider-a-width: 600px;
+  --slider-a-height: 400px;
+  --slider-a-gap: 20px;
 
   width: var(--slider-a-width);
-  height: 400px;
+  height: var(--slider-a-height);
   display: flex;
   align-items: center;
   position: relative;
@@ -37,7 +39,6 @@ body {
   width: 30px;
   height: 30px;
   position: absolute;
-  color: lime;
   z-index: 1;
 }
 
@@ -51,8 +52,9 @@ body {
 
 .slider-a__container {
   display: flex;
-  transform: translateX(calc(-1 * var(--slider-a-width) * var(--slider-a-count)));
-  transition: transform .2s linear;
+  gap: var(--slider-a-gap);
+  transform: translateX(calc(-1 * (var(--slider-a-width) + var(--slider-a-gap)) * var(--slider-a-count)));
+  transition: transform .5s ease-in-out;
 }
 
 .slider-a__image {

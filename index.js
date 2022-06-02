@@ -4,8 +4,10 @@ class Slider {
     sliderContainerSelector,
     leftButtonSelector,
     rightButtonSelector,
+    sliderImageClass,
     countCssVariable,
   }) {
+    this._sliderImageClass = sliderImageClass;
     this._images = images;
     this._count = 0;
     this._countCssVariable = countCssVariable;
@@ -15,36 +17,46 @@ class Slider {
     this._rightButton = this._slider.querySelector(rightButtonSelector);
   }
 
-  _createImageElement(image) {
+  _createImageElement({ link, name }) {
     const imageElement = document.createElement('img');
-    imageElement.src = image.link;
-    imageElement.alt = image.name;
+    imageElement.classList.add(this._sliderImageClass);
+    imageElement.src = link;
+    imageElement.alt = name;
 
     return imageElement;
   }
 
   _handleLeftButtonClick() {
-    console.log(this._count)
     if (this._count > 0) {
-      this._container.setAttribute('style', `${this._countCssVariable}: ${--this._count}`);
+      this._container.setAttribute(
+        'style',
+        `${this._countCssVariable}: ${--this._count}`
+      );
     } else {
       this._count = this._images.length - 1;
-      this._container.setAttribute('style', `${this._countCssVariable}: ${this._count}`);
+      this._container.setAttribute(
+        'style',
+        `${this._countCssVariable}: ${this._count}`
+      );
     }
   }
 
   _handleRightButtonClick() {
-    console.log(this._count)
     if (this._count === this._images.length - 1) {
       this._count = 0;
-      this._container.setAttribute('style', `${this._countCssVariable}: ${this._count}`);
+      this._container.setAttribute(
+        'style',
+        `${this._countCssVariable}: ${this._count}`
+      );
     } else {
-      this._container.setAttribute('style', `${this._countCssVariable}: ${++this._count}`);
+      this._container.setAttribute(
+        'style',
+        `${this._countCssVariable}: ${++this._count}`
+      );
     }
   }
 
   init() {
-    console.log(this._images)
     this._images.forEach((image) => {
       const imageElement = this._createImageElement(image);
       this._container.append(imageElement);
@@ -55,11 +67,12 @@ class Slider {
   }
 }
 
-const sliderData = {
+const sliderSettings = {
   sliderSelector: '.slider-a',
   sliderContainerSelector: '.slider-a__container',
   leftButtonSelector: '.slider-a__button_pos_left',
   rightButtonSelector: '.slider-a__button_pos_right',
+  sliderImageClass: 'slider-a__image',
   countCssVariable: '--slider-a-count',
 }
 
@@ -78,6 +91,6 @@ const images = [
   },
 ]
 
-const slider = new Slider(images, sliderData);
+const slider = new Slider(images, sliderSettings);
 
 slider.init();
