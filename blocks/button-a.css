@@ -1,6 +1,7 @@
 .button-a {
   --button-a-accent-a: var(--app-accent-a, #00ccff);
   --button-a-accent-b: var(--app-accent-b, #00ccff);
+  --button-a-border-radius: 30px;
 
   position: relative;
   width: 155px;
@@ -21,7 +22,7 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
   border-top: 1px solid rgba(255, 255, 255, .1);
   border-bottom: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 30px;
+  border-radius: var(--button-a-border-radius);
   color: #fff;
   z-index: 1;
   font-size: 18px;
@@ -53,43 +54,49 @@
   transform: skewX(45deg) translateX(200%);
 }
 
-.button-a::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 10px;
-  background: var(--button-a-accent-a);
-  border-radius: 10px;
-  transition: .5s;
-  transition-delay: 0s;
-}
-
-.button-a:hover::before {
-  bottom: 0;
-  height: 50%;
-  width: 80%;
-  border-radius: 30px;
-}
-
+.button-a::before,
 .button-a::after {
   content: '';
   position: absolute;
   left: 50%;
-  top: -5px;
   transform: translateX(-50%);
   width: 30px;
   height: 10px;
-  background: var(--button-a-accent-b);
   border-radius: 10px;
   transition: .5s;
 }
 
+.button-a::before {
+  bottom: -5px;
+  background: var(--button-a-accent-a);
+  box-shadow:
+    0 0 5px var(--button-a-accent-a),
+    0 0 15px var(--button-a-accent-a),
+    0 0 30px var(--button-a-accent-a),
+    0 0 60px var(--button-a-accent-a);
+}
+
+.button-a::after {
+  top: -5px;
+  background: var(--button-a-accent-b);
+  box-shadow:
+    0 0 5px var(--button-a-accent-b),
+    0 0 15px var(--button-a-accent-b),
+    0 0 30px var(--button-a-accent-b),
+    0 0 60px var(--button-a-accent-b);
+}
+
+.button-a:hover::before,
+.button-a:hover::after {
+  height: 50%;
+  width: min(calc(100% - var(--button-a-border-radius)), 99%);
+  border-radius: var(--button-a-border-radius);
+}
+
+.button-a:hover::before {
+  bottom: 0;
+}
+
 .button-a:hover::after {
   top: 0;
-  height: 50%;
-  width: 80%;
-  border-radius: 30px;
 }
