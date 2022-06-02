@@ -1,12 +1,12 @@
 class Slider {
-  constructor(images, {
-    sliderSelector,
-    sliderContainerSelector,
-    leftButtonSelector,
-    rightButtonSelector,
-    sliderImageClass,
-    countCssVariable,
-    autoSlideInterval = 3000,
+  constructor(images = [{ name: '', link: '' }], {
+    sliderSelector = '.slider',
+    sliderContainerSelector = '.slider-container',
+    leftButtonSelector = '.left-button',
+    rightButtonSelector = '.right-button',
+    sliderImageClass = 'slider-image',
+    countCssVariable = '--count',
+    autoSlideInterval = 0,
   }) {
     this._images = images;
     this._slider = document.querySelector(sliderSelector);
@@ -55,7 +55,7 @@ class Slider {
     this._interval = setInterval(() => this._handleRightButtonClick(), this._autoSlideInterval)
   }
 
-  init(isAuto) { // use boolean 'isAuto' for auto sliding animation
+  init() {
     this._images.forEach((image) => {
       const imageElement = this._createImageElement(image);
       this._container.append(imageElement);
@@ -66,7 +66,7 @@ class Slider {
 
     this._setCount();
 
-    if (isAuto) { // TODO: add slide preventing by touch event
+    if (this._autoSlideInterval) { // TODO: add auto slide preventing by touch event
       this._slider.addEventListener('mouseenter', () => clearInterval(this._interval));
       this._slider.addEventListener('mouseleave', () => this._autoSlide());
 
@@ -82,6 +82,7 @@ const sliderSettings = {
   rightButtonSelector: '.slider-a__button_pos_right',
   sliderImageClass: 'slider-a__image',
   countCssVariable: '--slider-a-count',
+  autoSlideInterval: 3000,
 }
 
 const images = [
