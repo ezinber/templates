@@ -6,15 +6,17 @@ class Slider {
     rightButtonSelector,
     sliderImageClass,
     countCssVariable,
+    autoSlideInterval = 3000,
   }) {
-    this._sliderImageClass = sliderImageClass;
     this._images = images;
-    this._count = 0;
-    this._countCssVariable = countCssVariable;
     this._slider = document.querySelector(sliderSelector);
     this._container = this._slider.querySelector(sliderContainerSelector);
     this._leftButton = this._slider.querySelector(leftButtonSelector);
     this._rightButton = this._slider.querySelector(rightButtonSelector);
+    this._sliderImageClass = sliderImageClass;
+    this._countCssVariable = countCssVariable;
+    this._autoSlideInterval = autoSlideInterval;
+    this._count = 0;
   }
 
   _createImageElement({ link, name }) {
@@ -26,37 +28,34 @@ class Slider {
     return imageElement;
   }
 
+  _setCount() {
+    this._container.setAttribute(
+      'style',
+      `${this._countCssVariable}: ${this._count}`
+    );
+  }
+
   _handleLeftButtonClick() {
-    if (this._count > 0) {
-      this._container.setAttribute(
-        'style',
-        `${this._countCssVariable}: ${--this._count}`
-      );
-    } else {
-      this._count = this._images.length - 1;
-      this._container.setAttribute(
-        'style',
-        `${this._countCssVariable}: ${this._count}`
-      );
-    }
+    this._count > 0
+      ? this._count--
+      : this._count = this._images.length - 1;
+
+    this._setCount();
   }
 
   _handleRightButtonClick() {
-    if (this._count === this._images.length - 1) {
-      this._count = 0;
-      this._container.setAttribute(
-        'style',
-        `${this._countCssVariable}: ${this._count}`
-      );
-    } else {
-      this._container.setAttribute(
-        'style',
-        `${this._countCssVariable}: ${++this._count}`
-      );
-    }
+    this._count < this._images.length - 1
+      ? this._count++
+      : this._count = 0;
+
+    this._setCount();
   }
 
-  init() {
+  _autoSlide() {
+    this._interval = setInterval(() => this._handleRightButtonClick(), this._autoSlideInterval)
+  }
+
+  init(isAuto) { // use boolean 'isAuto' for auto sliding animation
     this._images.forEach((image) => {
       const imageElement = this._createImageElement(image);
       this._container.append(imageElement);
@@ -64,6 +63,15 @@ class Slider {
 
     this._leftButton.addEventListener('click', () => this._handleLeftButtonClick());
     this._rightButton.addEventListener('click', () => this._handleRightButtonClick());
+
+    this._setCount();
+
+    if (isAuto) { // TODO: add slide preventing by touch event
+      this._slider.addEventListener('mouseenter', () => clearInterval(this._interval));
+      this._slider.addEventListener('mouseleave', () => this._autoSlide());
+
+      this._autoSlide();
+    }
   }
 }
 
@@ -82,15 +90,15 @@ const images = [
     name: 'any image',
   },
   {
-    link: 'https://picsum.photos/600/400',
+    link: 'https://picsum.photos/800/600',
     name: 'any image',
   },
   {
-    link: 'https://picsum.photos/600/400',
+    link: 'https://picsum.photos/700/500',
     name: 'any image',
   },
 ]
 
 const slider = new Slider(images, sliderSettings);
 
-slider.init();
+slider.init(true);

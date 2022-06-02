@@ -58,7 +58,7 @@ body {
 }
 
 .slider-a__image {
-  width: 600px;
-  height: 400px;
-  flex-basis: 600px;
+  width: var(--slider-a-width);
+  height: var(--slider-a-height);
+  object-fit: cover;
 }
