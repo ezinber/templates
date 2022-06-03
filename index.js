@@ -1,4 +1,4 @@
-class Slider {
+class Slider { // TODO: create navigation dots
   constructor(images = [{ name: '', link: '' }], {
     sliderSelector = '.slider',
     sliderContainerSelector = '.slider-container',
@@ -17,6 +17,8 @@ class Slider {
     this._countCssVariable = countCssVariable;
     this._autoSlideInterval = autoSlideInterval;
     this._count = 0;
+    this._initialX = null;
+    this._initialY = null;
   }
 
   _createImageElement({ link, name }) {
@@ -51,29 +53,72 @@ class Slider {
     this._setCount();
   }
 
-  _autoSlide() {
+  _setAutoSlide() {
     this._interval = setInterval(() => this._handleRightButtonClick(), this._autoSlideInterval)
   }
 
+  _removeAutoSlide() {
+    clearInterval(this._interval);
+  }
+
+  _startTouch(e) {
+    this._initialX = e.touches[0].clientX;
+    this._initialY = e.touches[0].clientY;
+  }
+
+  _moveTouch(e) {
+    e.preventDefault();
+
+    if (!this._initialX) {
+      return;
+    }
+
+    if (!this._initialY) {
+      return;
+    }
+
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+
+    const diffX = this._initialX - currentX;
+    const diffY = this._initialY - currentY;
+
+    const resetInitialXY = () => {
+      this._initialX = null;
+      this._initialY = null;
+    }
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 50) {
+        this._handleRightButtonClick();
+        resetInitialXY();
+      } else if (diffX < -50) {
+        this._handleLeftButtonClick();
+        resetInitialXY();
+      }
+    }
+  }
+
   init() {
-    this._images.forEach((image) => {
-      const imageElement = this._createImageElement(image);
-      this._container.append(imageElement);
-    });
+    this._images.forEach((image) =>
+      this._container.append(this._createImageElement(image)));
 
     this._leftButton.addEventListener('click', () => this._handleLeftButtonClick());
     this._rightButton.addEventListener('click', () => this._handleRightButtonClick());
+    this._slider.addEventListener('touchstart', (e) => this._startTouch(e));
+    this._slider.addEventListener('touchmove', (e) => this._moveTouch(e));
 
     this._setCount();
 
     if (this._autoSlideInterval) { // TODO: add auto slide preventing by touch event
-      this._slider.addEventListener('mouseenter', () => clearInterval(this._interval));
-      this._slider.addEventListener('mouseleave', () => this._autoSlide());
+      this._slider.addEventListener('mouseenter', () => this._removeAutoSlide());
+      this._slider.addEventListener('mouseleave', () => this._setAutoSlide());
 
-      this._autoSlide();
+      this._setAutoSlide();
     }
   }
 }
+
 
 const sliderSettings = {
   sliderSelector: '.slider-a',
@@ -82,7 +127,7 @@ const sliderSettings = {
   rightButtonSelector: '.slider-a__button_pos_right',
   sliderImageClass: 'slider-a__image',
   countCssVariable: '--slider-a-count',
-  autoSlideInterval: 0,
+  autoSlideInterval: 3000,
 }
 
 const images = [
