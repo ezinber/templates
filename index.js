@@ -112,7 +112,9 @@ class Slider { // TODO: create navigation dots
 
     if (this._autoSlideInterval) { // TODO: add auto slide preventing by touch event
       this._slider.addEventListener('mouseenter', () => this._removeAutoSlide());
+      this._slider.addEventListener('touchstart', () => this._removeAutoSlide());
       this._slider.addEventListener('mouseleave', () => this._setAutoSlide());
+      this._slider.addEventListener('touchend', () => this._setAutoSlide());
 
       this._setAutoSlide();
     }
