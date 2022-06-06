@@ -72,8 +72,7 @@
   box-shadow:
     0 0 5px var(--button-a-accent-a),
     0 0 15px var(--button-a-accent-a),
-    0 0 30px var(--button-a-accent-a),
-    0 0 60px var(--button-a-accent-a);
+    0 0 30px var(--button-a-accent-a);
 }
 
 .button-a::after {
@@ -82,8 +81,7 @@
   box-shadow:
     0 0 5px var(--button-a-accent-b),
     0 0 15px var(--button-a-accent-b),
-    0 0 30px var(--button-a-accent-b),
-    0 0 60px var(--button-a-accent-b);
+    0 0 30px var(--button-a-accent-b);
 }
 
 .button-a:hover::before,
