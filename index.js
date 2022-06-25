@@ -129,7 +129,7 @@ const sliderSettings = {
   rightButtonSelector: '.slider-a__button_pos_right',
   sliderImageClass: 'slider-a__image',
   countCssVariable: '--slider-a-count',
-  autoSlideInterval: 3000,
+  autoSlideInterval: 0,
 }
 
 const images = [

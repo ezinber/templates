@@ -8,7 +8,7 @@
 }
 
 .avatar-a {
-  --avatar-a-size: min(400px, 90vw);
+  --avatar-a-size: /*min(400px, 90vw)*/ 100%;
   --avatar-a-content-color: #fff;
   --avatar-a-background-color: #303030;
   --avatar-a-border-color: rgba(0,0,0,0.5);
@@ -20,11 +20,12 @@
 
   position: relative;
   width: var(--avatar-a-size);
-  height: var(--avatar-a-size);
+  /* height: var(--avatar-a-size); */
   background: var(--avatar-a-border-color);
   border-radius: var(--avatar-a-border-radius);
   overflow: hidden;
   font-size: calc(var(--avatar-a-size) / 12);
+  padding-bottom: 100%;
 }
 
 .avatar-a::before {
