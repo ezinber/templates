@@ -40,8 +40,10 @@
   min-width: var(--appMinWidth);
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--appColWidth));
-  grid-template-rows: repeat(auto-fill, var(--appColWidth));
-  grid-auto-rows: var(--appColWidth);
+  grid-template-rows:
+    minmax(var(--appColWidth), max-content)
+    minmax(var(--appColWidth), 100%)
+    minmax(var(--appColWidth), max-content);
   gap: var(--appGap);
   justify-content: center;
   background: var(--app-color-a);
@@ -96,7 +98,6 @@
 .header {
   background-color: dimgray;
   grid-column: 1 / -1;
-  grid-row: 1 / 2;
   border-bottom-left-radius: var(--appBorderRadius);
   border-bottom-right-radius: var(--appBorderRadius);
 }
@@ -110,7 +111,7 @@
 }
 
 .main {
-  grid-row: 2 / -2;
+  grid-row: 2;
   grid-column: 5 / -1;
   outline: 1px solid red;
 }
@@ -118,7 +119,6 @@
 .footer {
   background-color: dimgray;
   grid-column: 1 / -1;
-  grid-row: span 1 / -1;
   border-top-left-radius: var(--appBorderRadius);
   border-top-right-radius: var(--appBorderRadius);
 }
@@ -137,4 +137,14 @@
   width: clamp(var(--width), 100%, var(--width2));
   height: calc(var(--appColWidth) * var(--H) + var(--appGap) * (var(--H) - 1));
   margin-left: calc(var(--appColWidth) * var(--L) + var(--appGap) * var(--L));
+}
+
+@media screen and (max-width: 619px) {
+  .aside {
+    grid-column: span 1;
+  }
+
+  .main {
+    grid-column-start: 2;
+  }
 }
