@@ -124,7 +124,17 @@
 }
 
 .test {
-  --num: 2;
-  width: calc(var(--appColWidth) * var(--num) + var(--appGap) * (var(--num) - 1));
-  padding-bottom: 100%;
+  --W: 3;
+  --H: 3;
+  --T: 0;
+  --B: 0;
+  --L: 0;
+  --R: 0;
+
+  --width: calc(var(--appColWidth) * var(--W) + var(--appGap) * (var(--W) - 1));
+  --width2: calc(var(--appColWidth) * 5 + var(--appGap) * (5 - 1));
+
+  width: clamp(var(--width), 100%, var(--width2));
+  height: calc(var(--appColWidth) * var(--H) + var(--appGap) * (var(--H) - 1));
+  margin-left: calc(var(--appColWidth) * var(--L) + var(--appGap) * var(--L));
 }
