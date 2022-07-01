@@ -102,6 +102,10 @@
   border-bottom-right-radius: var(--appBorderRadius);
 }
 
+.header_wide_full {
+  margin: 0 calc((50vw - 50%) * -1);
+}
+
 .aside {
   grid-column-start: 1;
   grid-column: span 4;
@@ -113,6 +117,10 @@
 .main {
   grid-row: 2;
   grid-column: 5 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--appGap);
   outline: 1px solid red;
 }
 
@@ -124,18 +132,21 @@
 }
 
 .test {
-  --W: 3;
-  --H: 3;
-  --T: 0;
-  --B: 0;
-  --L: 0;
-  --R: 0;
+  --minWidth: calc(var(--appColWidth) * var(--minW) + var(--appGap) * (var(--minW) - 1));
+  --maxWidth: calc(
+    var(--appColWidth)
+    * var(--maxW, var(--minW))
+    + var(--appGap)
+    * (var(--maxW, var(--minW)) - 1)
+  );
 
-  --width: calc(var(--appColWidth) * var(--W) + var(--appGap) * (var(--W) - 1));
-  --width2: calc(var(--appColWidth) * 5 + var(--appGap) * (5 - 1));
-
-  width: clamp(var(--width), 100%, var(--width2));
-  height: calc(var(--appColWidth) * var(--H) + var(--appGap) * (var(--H) - 1));
+  width: clamp(var(--minWidth), 100%, var(--maxWidth));
+  height: calc(
+    var(--appColWidth)
+    * var(--H, var(--minW))
+    + var(--appGap)
+    * (var(--H, var(--minW)) - 1)
+  );
   margin-left: calc(var(--appColWidth) * var(--L) + var(--appGap) * var(--L));
 }
 
