@@ -2,8 +2,13 @@
 @import url('./blocks/avatar-a.css');
 @import url('./blocks/button-a.css');
 @import url('./blocks/slider-a.css');
+@import url('./blocks/loader-a.css');
 
 :root {
+  --app-color-a: #303030;
+  --app-accent-a: #00ccff;
+  --app-accent-b: #d400d4;
+
   font-size: 125%; /*20px*/
 }
 
@@ -14,10 +19,6 @@
 }
 
 body {
-  --app-color-a: #303030;
-  --app-accent-a: #00ccff;
-  --app-accent-b: #d400d4;
-
   padding: 1rem max(calc(50% - 15rem), 1rem);
   min-height: 100vh;
   min-width: 20rem;
