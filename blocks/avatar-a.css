@@ -8,15 +8,15 @@
 }
 
 .avatar-a {
-  --avatar-a-size: min(400px, 90vw);
+  --avatar-a-size: min(15rem, 90vw);
   --avatar-a-content-color: #fff;
   --avatar-a-background-color: #303030;
   --avatar-a-border-color: rgba(0,0,0,0.5);
   --avatar-a-accent-a: var(--app-accent-a, #00ccff);
   --avatar-a-accent-b: var(--app-accent-b, #d400d4);
-  --avatar-a-border-radius: 200px;
+  --avatar-a-border-radius: 100%;
   --avatar-a-border-width: 2px;
-  --avatar-a-gap: 10px;
+  --avatar-a-gap: .5rem;
 
   position: relative;
   width: var(--avatar-a-size);
@@ -82,13 +82,16 @@
 
 .avatar-a__title {
   position: relative;
+  font-size: 1.6rem;
+  line-height: 2rem;
   font-weight: 600;
   text-align: center;
   color: var(--avatar-a-content-color);
 }
 
 .avatar-a__subtitle {
-  font-size: .75em;
+  font-size: .8rem;
+  line-height: 1rem;
   font-weight: 300;
   color: var(--avatar-a-content-color);
 }

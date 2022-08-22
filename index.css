@@ -1,6 +1,11 @@
+@import url('./blocks/text-a.css');
 @import url('./blocks/avatar-a.css');
 @import url('./blocks/button-a.css');
 @import url('./blocks/slider-a.css');
+
+:root {
+  font-size: 125%; /*20px*/
+}
 
 * {
   margin: 0;
@@ -13,12 +18,12 @@ body {
   --app-accent-a: #00ccff;
   --app-accent-b: #d400d4;
 
-  padding: 20px max(calc(50% - 300px), 20px);
+  padding: 1rem max(calc(50% - 15rem), 1rem);
   min-height: 100vh;
-  min-width: 320px;
+  min-width: 20rem;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   background: var(--app-color-a);
