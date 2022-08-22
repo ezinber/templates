@@ -3,6 +3,7 @@
 @import url('./blocks/button-a.css');
 @import url('./blocks/slider-a.css');
 @import url('./blocks/loader-a.css');
+@import url('./blocks/input-a.css');
 
 :root {
   --app-color-a: #303030;
