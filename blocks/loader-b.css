@@ -1,0 +1,61 @@
+.loader-b {
+  --loader-b-background-color: var(--app-color-a);
+
+  position: relative;
+  display: flex;
+}
+
+.loader-b span {
+  width: 5rem;
+  height: 30rem;
+  margin: 0 2rem;
+  background: var(--loader-b-background-color);
+  animation: loader-b 1.5s linear infinite;
+}
+
+.loader-b span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loader-b span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-b span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loader-b span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.loader-b span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.loader-b span:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.loader-b span:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+@keyframes loader-b {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+    transform: translateX(-5rem) scale(1);
+  }
+
+  50% {
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, .5);
+    opacity: 1;
+    transform: translateX(0) scale(1.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+    opacity: 0;
+    transform: translateX(5rem) scale(1);
+  }
+}

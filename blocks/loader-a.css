@@ -1,6 +1,6 @@
 .loader-a {
-  --loader-a-size: 10rem;
-  --loader-a-item-size: 1rem;
+  --loader-a-size: 20rem;
+  --loader-a-item-size: 2rem;
   --loader-a-background-color: var(--app-color-a, #000);
   --loader-a-color-a: var(--app-accent-a, #fff);
   --loader-a-color-b: var(--app-accent-b, var(--loader-a-color-a));
@@ -66,30 +66,30 @@
 
 .loader-a__item:nth-child(3) i{
   background-color: var(--loader-a-color-a);
-  box-shadow: 0 0 .5rem var(--loader-a-color-a),
-  0 0 1rem var(--loader-a-color-a),
-  0 0 1.5rem var(--loader-a-color-a),
+  box-shadow: 0 0 1rem var(--loader-a-color-a),
   0 0 2rem var(--loader-a-color-a),
-  0 0 2.5rem var(--loader-a-color-a),
   0 0 3rem var(--loader-a-color-a),
-  0 0 3.5rem var(--loader-a-color-a),
   0 0 4rem var(--loader-a-color-a),
-  0 0 4.5rem var(--loader-a-color-a),
-  0 0 5rem var(--loader-a-color-a);
+  0 0 5rem var(--loader-a-color-a),
+  0 0 6rem var(--loader-a-color-a),
+  0 0 7rem var(--loader-a-color-a),
+  0 0 8rem var(--loader-a-color-a),
+  0 0 9rem var(--loader-a-color-a),
+  0 0 10rem var(--loader-a-color-a);
 }
 
 .loader-a__item:nth-child(4) i {
   background-color: var(--loader-a-color-b);
-  box-shadow: 0 0 .5rem var(--loader-a-color-b),
-  0 0 1rem var(--loader-a-color-b),
-  0 0 1.5rem var(--loader-a-color-b),
+  box-shadow: 0 0 1rem var(--loader-a-color-b),
   0 0 2rem var(--loader-a-color-b),
-  0 0 2.5rem var(--loader-a-color-b),
   0 0 3rem var(--loader-a-color-b),
-  0 0 3.5rem var(--loader-a-color-b),
   0 0 4rem var(--loader-a-color-b),
-  0 0 4.5rem var(--loader-a-color-b),
-  0 0 5rem var(--loader-a-color-b);
+  0 0 5rem var(--loader-a-color-b),
+  0 0 6rem var(--loader-a-color-b),
+  0 0 7rem var(--loader-a-color-b),
+  0 0 8rem var(--loader-a-color-b),
+  0 0 9rem var(--loader-a-color-b),
+  0 0 10rem var(--loader-a-color-b);
 }
 
 @keyframes loader-a {

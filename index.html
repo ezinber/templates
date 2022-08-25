@@ -9,55 +9,70 @@
   <script src="./index.js" defer></script>
 </head>
 <body>
-  <h1 class="text-a" data-text="&nbsp;ezinber&nbsp;">&nbsp;ezinber&nbsp;</h1>
+  <div class="app">
+    <header class="header">
 
-  <div class="avatar-a">
-    <div class="avatar-a__container">
-      <img class="avatar-a__image" src="./images/avatar.jpg" alt="avatar" />
-      <h2 class="avatar-a__title">ezinber</h2>
-      <p class="avatar-a__subtitle">web-developer</p>
+    </header>
+    <h1 class="text-a" data-text="&nbsp;ezinber&nbsp;">&nbsp;ezinber&nbsp;</h1>
 
-      <div class="button-a">
-        <a class="button-a__link" href="https://github.com/ezinber" target="_blank">Github</a>
+    <div class="avatar-a">
+      <div class="avatar-a__container">
+        <img class="avatar-a__image" src="./images/avatar.jpg" alt="avatar" />
+        <h2 class="avatar-a__title">ezinber</h2>
+        <p class="avatar-a__subtitle">web-developer</p>
+
+        <div class="button-a">
+          <a class="button-a__link" href="https://github.com/ezinber"   target="_blank">Github</a>
+        </div>
+        <!-- <a class="avatar-a__link" href="https://github.com/ezinber"  target="_blank">GitHub</a> -->
       </div>
-      <!-- <a class="avatar-a__link" href="https://github.com/ezinber" target="_blank">GitHub</a> -->
     </div>
-  </div>
 
-  <div class="loader-a">
-    <div class="loader-a__item"><span></span></div>
-    <div class="loader-a__item"><span></span></div>
-    <div class="loader-a__item"><i></i></div>
-    <div class="loader-a__item"><i></i></div>
-  </div>
-
-  <div class="input-a">
-    <div class="input-a__wrapper">
-      <input class="input-a__field" type="password" placeholder="Password">
-      <span class="input-a__button">A</span>
+    <div class="loader-a">
+      <div class="loader-a__item"><span></span></div>
+      <div class="loader-a__item"><span></span></div>
+      <div class="loader-a__item"><i></i></div>
+      <div class="loader-a__item"><i></i></div>
     </div>
-    <div class="input-a__validation">
-      <ul>
-        <li>At least one lowercase character</li>
-        <li>At least one uppercase character</li>
-        <li>At least one number</li>
-        <li>At least one special character</li>
-        <li>At least 8 characters</li>
-      </ul>
+
+    <div class="input-a">
+      <div class="input-a__wrapper">
+        <input class="input-a__field" type="password" placeholder="Password">
+        <span class="input-a__button"></span>
+      </div>
+      <div class="input-a__validation">
+        <ul class="input-a__validation-list">
+          <li class="input-a__validation-item">At least one lowercase   character</li>
+          <li class="input-a__validation-item">At least one uppercase   character</li>
+          <li class="input-a__validation-item">At least one number</li>
+          <li class="input-a__validation-item">At least one special character</ li>
+          <li class="input-a__validation-item">At least 8 characters</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- <div class="button-a">
+      <a class="button-a__link" href="#">Read more</a>
+    </div> -->
+
+    <div class="slider-a">
+      <div class="slider-a__container"></div>
+      <button type="button" class="slider-a__button   slider-a__button_pos_left" />
+      <button type="button" class="slider-a__button   slider-a__button_pos_right" />
+    </div>
+
+    <p style="font-size: 1.6rem; line-height: 125%">Lorem ipsum dolor sit.</p>
+
+    <div class="loader-b">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
   </div>
-
-  <!-- <div class="button-a">
-    <a class="button-a__link" href="#">Read more</a>
-  </div> -->
-
-  <div class="slider-a">
-    <div class="slider-a__container"></div>
-    <button type="button" class="slider-a__button slider-a__button_pos_left" />
-    <button type="button" class="slider-a__button slider-a__button_pos_right" />
-  </div>
-
-  <p style="font-size: .8rem; line-height: 1rem">Lorem ipsum dolor sit amet.</p>
-
 </body>
 </html>
