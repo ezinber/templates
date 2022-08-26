@@ -5,6 +5,7 @@
 @import url('./blocks/loader-a.css');
 @import url('./blocks/loader-b.css');
 @import url('./blocks/input-a.css');
+@import url('./blocks/input-range-a.css');
 @import url('./blocks/header.css');
 
 :root {

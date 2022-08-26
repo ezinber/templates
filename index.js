@@ -64,6 +64,16 @@ const inputAInit = () => {
 inputAInit();
 
 
+const inputRangeA = document.querySelector('.input-range-a');
+const inputRangeASlider = inputRangeA.querySelector('.input-range-a__slider');
+const inputRangeAValue = inputRangeA.querySelector('.input-range-a__value');
+
+inputRangeASlider.addEventListener('mousemove', () => {
+  inputRangeAValue.innerHTML = inputRangeASlider.value;
+  console.log('move')
+})
+
+
 
 class Slider { // TODO: create navigation dots
   constructor(images = [{ name: '', link: '' }], {

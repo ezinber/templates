@@ -1,0 +1,65 @@
+.input-range-a {
+  --input-range-a-width: 40em;
+  --input-range-a-button-size: 1.5em;
+  --input-range-a-shadow-shift: calc(-1 * (var(--input-range-a-width) + var(--input-range-a-button-size) / 2));
+  --input-range-a-background-color: var(--app-color-a);
+  --input-range-a-text-color: var(--app-text-color-a);
+  --input-range-a-accent-color-a: var(--app-accent-a, var(--app-text-color-a));
+  --input-range-a-accent-color-b: var(--app-accent-b, var(--input-range-a-accent-color-a));
+  font-size: 100%;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, .05),
+    var(--input-range-a-background-color)
+  );
+  border-radius: 4em;
+  box-shadow:
+    1.5em 1.5em 2em rgba(0, 0, 0, .1),
+    -1.5em -1.5em 2em var(--input-range-a-background-color);
+}
+
+.input-range-a__slider {
+  width: var(--input-range-a-width);
+  height: 1.5em;
+  appearance: none;
+  background: var(--input-range-a-background-color);
+  outline: none;
+  border-radius: 1.5em;
+  box-shadow:
+    .5em .5em .5em rgba(0, 0, 0, .1),
+    -.5em -.5em 1em var(--input-range-a-background-color),
+    inset .5em .5em .5em rgba(0, 0, 0, .1);
+  overflow: hidden;
+}
+
+.input-range-a__slider::-webkit-slider-thumb {
+  appearance: none;
+  width: var(--input-range-a-button-size);
+  height: var(--input-range-a-button-size);
+  background: var(--input-range-a-background-color);
+  border-radius: 50%;
+  border: .2em solid var(--input-range-a-accent-color-a);
+  box-shadow: var(--input-range-a-shadow-shift) 0 0 var(--input-range-a-width) var(--input-range-a-accent-color-a);
+  cursor: pointer;
+}
+
+.input-range-a__value {
+  position: relative;
+  text-align: center;
+  width: 6rem;
+  font-size: 1.6rem;
+  color: var(--input-range-a-text-color);
+  background: var(--input-range-a-accent-color-b);
+  margin-left: 1.5rem;
+  border-radius: 2.5rem;
+  box-shadow:
+    .5rem .5rem 1rem rgba(0, 0, 0, .1),
+    -.5rem -.5rem 1rem var(--input-range-a-background-color),
+    inset .5rem .5rem 1rem rgba(0, 0, 0, .1),
+    inset -5px -5px 5px rgba(255, 255, 255, .25);
+}
