@@ -2,7 +2,7 @@
   --text-a-color: var(--app-accent-a, #fff);
 
   position: relative;
-  color: #222;
+  color: rgba(0, 0, 0, .3);;
   font-size: 4.8rem;
   line-height: 125%;
 }
