@@ -2,6 +2,7 @@
   --loader-b-background-color: var(--app-color-a);
   --loader-b-color-accent-a: var(--app-accent-a, rgba(0, 0, 0, .5));
   --loader-b-color-accent-b: var(--app-accent-b, var(--loader-b-color-accent-a));
+  --loader-b-color-shadow: var(--loader-b-color-accent-a);
   --loader-b-animation-duration: 2s;
   font-size: 100%;
 
