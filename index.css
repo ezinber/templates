@@ -12,6 +12,7 @@
 :root {
   --app-color-a: #303030;
   --app-text-color-a: #fff;
+  --app-shadow-color-a: rgba(0, 0, 0, .3);
   --app-accent-a: #00ccff;
   --app-accent-b: #d400d4;
 
