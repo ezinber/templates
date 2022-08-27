@@ -1,4 +1,4 @@
-@keyframes animate {
+@keyframes avatar-a {
   0% {
     transform: rotate(0deg);
   }
@@ -8,23 +8,24 @@
 }
 
 .avatar-a {
-  --avatar-a-size: min(400px, 90vw);
-  --avatar-a-content-color: #fff;
-  --avatar-a-background-color: #303030;
+  --avatar-a-size: min(15em, 90vw);
+  --avatar-a-content-color: var(--app-text-color-a, #fff);
+  --avatar-a-background-color: var(--app-color-a);
   --avatar-a-border-color: rgba(0,0,0,0.5);
-  --avatar-a-accent-a: var(--app-accent-a, #00ccff);
-  --avatar-a-accent-b: var(--app-accent-b, #d400d4);
-  --avatar-a-border-radius: 200px;
+  --avatar-a-accent-a: var(--app-accent-a, #fff);
+  --avatar-a-accent-b: var(--app-accent-b, var(--avatar-a-accent-a));
+  --avatar-a-border-radius: 100%;
   --avatar-a-border-width: 2px;
-  --avatar-a-gap: 10px;
+  --avatar-a-gap: .5em;
 
+  font-size: 2rem;
   position: relative;
   width: var(--avatar-a-size);
   height: var(--avatar-a-size);
   background: var(--avatar-a-border-color);
   border-radius: var(--avatar-a-border-radius);
   overflow: hidden;
-  font-size: calc(var(--avatar-a-size) / 12);
+  /* font-size: calc(var(--avatar-a-size) / 12); */
 }
 
 .avatar-a::before {
@@ -33,7 +34,7 @@
   inset: -30% 30%;
   background: linear-gradient(315deg, var(--avatar-a-accent-a), var(--avatar-a-accent-b));
   transition: .5s;
-  animation: animate 4s linear infinite;
+  animation: avatar-a 4s linear infinite;
 }
 
 .avatar-a:hover::before {
@@ -82,13 +83,16 @@
 
 .avatar-a__title {
   position: relative;
+  font-size: 1.6em;
+  line-height: 2em;
   font-weight: 600;
   text-align: center;
   color: var(--avatar-a-content-color);
 }
 
 .avatar-a__subtitle {
-  font-size: .75em;
+  font-size: .8em;
+  line-height: 1em;
   font-weight: 300;
   color: var(--avatar-a-content-color);
 }

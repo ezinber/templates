@@ -1,6 +1,22 @@
+@import url('./blocks/text-a.css');
+@import url('./blocks/text-b.css');
 @import url('./blocks/avatar-a.css');
 @import url('./blocks/button-a.css');
 @import url('./blocks/slider-a.css');
+@import url('./blocks/loader-a.css');
+@import url('./blocks/loader-b.css');
+@import url('./blocks/input-a.css');
+@import url('./blocks/input-range-a.css');
+@import url('./blocks/header.css');
+
+:root {
+  --app-color-a: #303030;
+  --app-text-color-a: #fff;
+  --app-accent-a: #00ccff;
+  --app-accent-b: #d400d4;
+
+  font-size: 62.5%; /*10px*/
+}
 
 * {
   margin: 0;
@@ -8,18 +24,54 @@
   box-sizing: border-box;
 }
 
-body {
-  --app-color-a: #303030;
-  --app-accent-a: #00ccff;
-  --app-accent-b: #d400d4;
-
-  padding: 20px max(calc(50% - 300px), 20px);
+section {
+  width: 100%;
   min-height: 100vh;
-  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  padding: 2rem max(calc(50% - 30rem), 2rem) 10rem;
+  min-height: 100vh;
+  min-width: 20rem;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   background: var(--app-color-a);
+}
+
+.test-div {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.test-div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:
+    rgba(0, 0, 0, .8)
+    url('./images/edit-button.svg')
+    no-repeat
+    center;
+  background-size: 40px;
+  opacity: 0;
+  transition: opacity .2s linear ;
+}
+
+.test-div:hover::after {
+  opacity: 1;
+}
+
+.reflected {
+  -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, #0005);
 }

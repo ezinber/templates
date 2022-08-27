@@ -1,3 +1,80 @@
+const inputAInit = () => {
+  const input = document.querySelector('.input-a');
+  const inputField = input.querySelector('.input-a__field');
+  const inputButton = input.querySelector('.input-a__button');
+
+  const validationList = input.querySelectorAll('li');
+  const [
+    lowerCheckString,
+    upperCheckString,
+    numberCheckString,
+    specialCheckString,
+    lengthCheckString,
+  ] = validationList;
+
+  const lowerRegExp = new RegExp('(?=.*[a-z])');
+  const upperRegExp = new RegExp('(?=.*[A-Z])');
+  const numberRegExp = new RegExp('(?=.*[0-9])');
+  const specialRegExp = new RegExp('(?=.*[!@#\$%|^&\*])');
+  const lengthRegExp = new RegExp('(?=.{8,})');
+
+  inputButton.addEventListener('click', () => {
+    if (inputField.type === 'password') {
+      inputField.setAttribute('type', 'text');
+      inputButton.classList.add('input-a__button_hidden');
+    } else {
+      inputField.setAttribute('type', 'password');
+      inputButton.classList.remove('input-a__button_hidden');
+    }
+  });
+
+  inputField.addEventListener('input', () => {
+    if (lowerRegExp.test(inputField.value)) {
+      lowerCheckString.classList.add('input-a__validation-item_valid');
+    } else {
+      lowerCheckString.classList.remove('input-a__validation-item_valid');
+    }
+
+    if (upperRegExp.test(inputField.value)) {
+      upperCheckString.classList.add('input-a__validation-item_valid');
+    } else {
+      upperCheckString.classList.remove('input-a__validation-item_valid');
+    }
+
+    if (numberRegExp.test(inputField.value)) {
+      numberCheckString.classList.add('input-a__validation-item_valid');
+    } else {
+      numberCheckString.classList.remove('input-a__validation-item_valid');
+    }
+
+    if (specialRegExp.test(inputField.value)) {
+      specialCheckString.classList.add('input-a__validation-item_valid');
+    } else {
+      specialCheckString.classList.remove('input-a__validation-item_valid');
+    }
+
+    if (lengthRegExp.test(inputField.value)) {
+      lengthCheckString.classList.add('input-a__validation-item_valid');
+    } else {
+      lengthCheckString.classList.remove('input-a__validation-item_valid');
+    }
+  });
+}
+
+inputAInit();
+
+
+const inputRangeA = document.querySelector('.input-range-a');
+const inputRangeASlider = inputRangeA.querySelector('.input-range-a__slider');
+const inputRangeAValue = inputRangeA.querySelector('.input-range-a__value');
+
+inputRangeASlider.addEventListener('mousemove', () => {
+  inputRangeAValue.innerHTML = inputRangeASlider.value;
+  console.log('move')
+})
+
+
+
 class Slider { // TODO: create navigation dots
   constructor(images = [{ name: '', link: '' }], {
     sliderSelector = '.slider',
@@ -112,7 +189,9 @@ class Slider { // TODO: create navigation dots
 
     if (this._autoSlideInterval) { // TODO: add auto slide preventing by touch event
       this._slider.addEventListener('mouseenter', () => this._removeAutoSlide());
+      this._slider.addEventListener('touchstart', () => this._removeAutoSlide());
       this._slider.addEventListener('mouseleave', () => this._setAutoSlide());
+      this._slider.addEventListener('touchend', () => this._setAutoSlide());
 
       this._setAutoSlide();
     }

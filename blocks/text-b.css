@@ -1,0 +1,72 @@
+.text-b {
+  --text-b-text-color: var(--app-text-color, #fff);
+  --text-b-accent-color-a: var(--app-accent-a);
+  --text-b-accent-color-b: var(--app-accent-b, var(--text-b-accent-color-a));
+  --text-b-shadow-color: var(--text-b-accent-color-a);
+
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, .2);
+  font-size: 4.8rem;
+  line-height: 125%;
+}
+
+.text-b__letter {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  animation: text-b 2s linear infinite;
+}
+
+.text-b__letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.text-b__letter:nth-child(2) {
+  --text-b-shadow-color: var(--text-b-accent-color-b);
+  animation-delay: .25s;
+}
+
+.text-b__letter:nth-child(3) {
+  animation-delay: .5s;
+}
+
+.text-b__letter:nth-child(4) {
+  --text-b-shadow-color: var(--text-b-accent-color-b);
+  animation-delay: .75s;
+}
+
+.text-b__letter:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.text-b__letter:nth-child(6) {
+  --text-b-shadow-color: var(--text-b-accent-color-b);
+  animation-delay: 1.25s;
+}
+
+.text-b__letter:nth-child(7) {
+  animation-delay: 1.5s;
+}
+
+@keyframes text-b {
+  0%, 100% {
+    color: var(--text-b-text-color);
+    filter: blur(2px);
+    text-shadow:
+      0 0 1rem var(--text-b-shadow-color),
+      0 0 2rem var(--text-b-shadow-color),
+      0 0 4rem var(--text-b-shadow-color),
+      0 0 8rem var(--text-b-shadow-color),
+      0 0 12rem var(--text-b-shadow-color),
+      0 0 20rem var(--text-b-shadow-color),
+      0 0 30rem var(--text-b-shadow-color),
+      0 0 40rem var(--text-b-shadow-color);
+  }
+
+  5%, 95% {
+    color: rgba(0, 0, 0, .2);
+    filter: blur(0px);
+    text-shadow: none;
+  }
+}

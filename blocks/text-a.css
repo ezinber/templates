@@ -1,0 +1,29 @@
+.text-a {
+  --text-a-color: var(--app-accent-a, #fff);
+
+  position: relative;
+  color: rgba(0, 0, 0, .3);;
+  font-size: 4.8rem;
+  line-height: 125%;
+}
+
+.text-a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--text-a-color);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--text-a-color);
+  filter: drop-shadow(0 0 2rem var(--text-a-color));
+  animation: text-a 4s linear infinite;
+}
+
+@keyframes text-a {
+  0%, 10%, 100% {
+    width: 0;
+  }
+
+  70%, 90% {
+    width: 100%;
+  }
+}
