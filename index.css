@@ -24,6 +24,14 @@
   box-sizing: border-box;
 }
 
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .app {
   padding: 2rem max(calc(50% - 30rem), 2rem) 10rem;
   min-height: 100vh;
